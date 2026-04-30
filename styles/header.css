@@ -1,0 +1,210 @@
+header {
+    position: relative;
+    left: 0;
+    top: 0;
+    margin: 0;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 10px;
+    color:#00008b;
+    background: linear-gradient(135deg, #e5e0ff 0%, #ffdde1 100%);
+}
+
+.overlay {
+    background-color: rgba(23, 23, 27, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 998;
+    display: none;
+}
+
+
+header .logo {
+    width: 7rem;
+    height: 7rem;
+}
+
+.confectionery-name {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 0; /* Важливо: прибираємо стандартний відступ браузера */
+    line-height: 1.1; /* Робимо рядки трохи щільнішими */
+}
+
+/* 2. Налаштовуємо сам підпис (припускаємо, що він має клас .text і лежить усередині .name) */
+header .name .text {
+    font-size: 14px; /* Маленький розмір (як ви просили раніше) */
+    font-style: italic; /* Робимо курсивом */
+    text-align: center; /* Центруємо відносно заголовка */
+    margin-top: 5px; /* Робимо акуратний мінімальний відступ від головного заголовка */
+    margin-bottom: 0;
+    font-weight: normal; /* Щоб підпис не був жирним, якщо раптом успадкував стилі */
+}
+
+.phone{
+    font-size: 25px;
+    margin: 0;
+
+}
+
+header .logo_block {
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+    color: #00008b;
+    font-size: 1.4rem;
+    margin: 15px;
+}
+
+
+header .name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header .text {
+    margin: 0;
+    font-family: 'PT Sans', sans-serif;
+}
+
+
+header .contact-block {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+header .contact-block .socials {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    flex-direction: row;
+    align-items: center;
+    color: #373a46;
+    gap: 10px;
+}
+
+.social-link{
+    display: block;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+.icon{
+    fill:#00008b;
+    transition: fill 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.icon:hover{
+    fill: #6495ED;
+}
+
+
+header .contact-block .text {
+    color: #00008b;
+    font-size: 20px;
+    font-weight: 700;
+    transition: color 250ms cubic-bezier(0.075, 0.82, 0.165, 1)
+}
+header .contact-block .text:hover{
+    color: #6495ED;
+}
+
+@media (max-width: 1024px) {
+
+    /*Header*/
+    header {
+        justify-content: space-between;
+    }
+
+    header .logo_block {
+        font-size: 1.3rem;
+        margin: 15px 50px;
+    }
+
+    header .logo {
+        width: 6rem;
+        height: 6rem;
+    }
+
+    header .contact-block {
+        width: 20%;
+        margin: 15px 50px;
+    }
+
+    header .contact-block button {
+        width: 2.1rem;
+    }
+
+    header .contact-block .text {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header .logo_block {
+        font-size: 1.2rem;
+        margin: 10px 25px;
+    }
+
+    header .logo {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    header .contact-block {
+        width: 25%;
+        margin: 10px 25px;
+    }
+
+    header .contact-block button {
+        width: 1.9rem;
+    }
+
+    header .contact-block .text {
+        font-size: 1.2rem;
+    }
+
+}
+
+@media (max-width: 480px) {
+    header .logo_block {
+        font-size: 1rem;
+        margin: 10px;
+        gap: 8px;
+    }
+
+    header .logo {
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+
+    header .contact-block {
+        width: 30%;
+        margin: 10px;
+    }
+
+    header .contact-block .socials {
+        gap: 3px;
+    }
+
+    header .contact-block button {
+        width: 1.8rem;
+    }
+
+    header .contact-block .text {
+        font-size: 1rem;
+    }
+
+}

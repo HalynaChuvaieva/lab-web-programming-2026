@@ -1,0 +1,291 @@
+/*CONTENT*/
+content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+content .container {
+    /*to keep items and list as the whole component*/
+    width: 90%;
+    background-color: rgb(237, 240, 244);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    padding: 10px 0;
+}
+
+
+
+/* --- Основний контейнер --- */
+content .items-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+content .items_container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap; /* Дозволяє карткам переноситися на новий рядок */
+    justify-content: flex-start; /* Вирівнювання карток по лівому краю */
+    gap: 20px; /* Відстань між картками */
+}
+
+/* --- Дизайн картки товару --- */
+.items_container .item {
+    /* Розрахунок: 100% ширини мінус 2 відступи по 20px, поділено на 3 картки */
+    width: calc((100% - 40px) / 3); 
+    background: linear-gradient(135deg, #e5e0ff 0%, #ffdde1 100%);
+    border: 1px solid #7a7a7a;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    color: #222;
+    box-sizing: border-box;
+    transition: box-shadow 0.2s ease;
+}
+
+.item:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Зображення */
+.items_container .item img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 15px;
+    background-color: #a0a0a0;
+}
+
+/* Текстова частина */
+.items_container .item h2 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    font-family: "PT Sans", sans-serif;
+    font-weight: 700;
+    text-align: left;
+    color: #1a1a1a;
+    line-height: 1.2;
+}
+
+.items_container .item h4 {
+    margin: 0 0 15px 0;
+    font-size: 0.9rem;
+    font-weight: normal;
+    text-align: left;
+    color: #333;
+}
+
+/* --- Блок з ціною та кнопкою --- */
+.items_container .item .buy-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00008b;
+    font-family: "DM Sans", sans-serif;
+}
+
+.price p {
+    margin: 0;
+}
+
+.items_container .item .buy button {
+    background-color: transparent;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    padding: 0;
+    font-size: 0; 
+    transition: transform 0.2s ease;
+}
+
+.items_container .item .buy button:hover {
+    transform: scale(1.1);
+}
+
+.items_container .item .buy button::after {
+    font-size: 1.8rem;
+}
+
+/* --- Блок з текстом під картками (дві колонки) --- */
+content .container {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.5); /* Напівпрозорий білий */
+
+    justify-content: space-between;
+    gap: 40px; /* Відстань між колонками тексту */
+    width: 100%;
+    max-width: 1200px; /* Така ж максимальна ширина, як і у контейнера карток */
+    margin: 3rem auto 0 auto; /* Центрування та відступ від пагінації */
+    padding: 2rem 20px; /* Відступ всередині (зверху/знизу та по боках) */
+    border-top: 1px solid #666; /* Горизонтальна смуга зверху */
+    box-sizing: border-box;
+}
+.container.text-container{
+    background-color: transparent;
+}
+content .text-content {
+    flex: 1; /* Обидві колонки займають рівно по 50% доступного простору */
+    font-size: 0.9rem;
+    line-height: 1.6; /* Міжрядковий інтервал для кращої читабельності */
+    color: #333;
+    text-align: left; /* Можна змінити на justify, якщо хочете рівні краї з обох боків */
+}
+
+content .text-content p {
+    margin: 0;
+}
+
+/* ========================================= */
+/* --- Адаптивність для текстового блоку --- */
+/* ========================================= */
+
+@media (max-width: 1024px) {
+    /* Планшети */
+    content .container {
+        width: 90%; /* Збігається з шириною контейнера карток на планшетах */
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Великі смартфони */
+    content .container {
+        width: 95%; /* Збігається з шириною контейнера карток на телефонах */
+        flex-direction: column; /* Текст стає в одну колонку один під одним */
+        gap: 20px;
+        padding: 1.5rem 10px;
+        margin-top: 2rem;
+    }
+    
+    /* На телефонах другий блок тексту зазвичай приховували в попередньому коді,
+       але якщо хочете залишити обидва один під одним - видаліть наступні 3 рядки */
+    .container .second {
+        display: block; 
+    }
+}
+
+@media (max-width: 480px) {
+    /* Малі смартфони */
+    content .container {
+        width: 100%;
+        padding: 1.5rem 15px;
+    }
+}
+/* ========================================= */
+/* --- Адаптивність під 3 типи екранів --- */
+/* ========================================= */
+
+/* 1. Планшети (від 769px до 1024px) - 2 картки в ряд */
+@media (max-width: 1024px) {
+    content .items-wrapper {
+        width: 90%;
+    }
+
+    content .items_container {
+        gap: 15px;
+    }
+
+    .items_container .item {
+        /* 100% мінус 1 відступ 15px, поділено на 2 */
+        width: calc((100% - 15px) / 2); 
+    }
+
+    .price {
+        font-size: 1.3rem;
+    }
+
+    .items_container .item h2 {
+        font-size: 1rem;
+    }
+}
+
+/* 2. Великі смартфони (від 481px до 768px) - 2 картки в ряд, менші відступи */
+@media (max-width: 768px) {
+    content .items-wrapper {
+        width: 95%;
+        padding: 15px 10px;
+    }
+
+    content .items_container {
+        gap: 12px;
+    }
+
+    .items_container .item {
+        /* 100% мінус 1 відступ 12px, поділено на 2 */
+        width: calc((100% - 12px) / 2);
+        padding: 12px;
+    }
+
+    .items_container .item img {
+        margin-bottom: 12px;
+    }
+
+    .price {
+        font-size: 1.2rem;
+    }
+
+    .items_container .item h2 {
+        font-size: 0.95rem;
+    }
+
+    .items_container .item h4 {
+        font-size: 0.85rem;
+        margin-bottom: 12px;
+    }
+
+    .items_container .item .buy button::after {
+        font-size: 1.5rem;
+    }
+}
+
+/* 3. Малі смартфони (до 480px) - 1 картка в ряд */
+@media (max-width: 480px) {
+    content .items_container {
+        gap: 10px;
+    }
+
+    .items_container .item {
+        /* Картка займає всю ширину контейнера */
+        width: 100%; 
+        padding: 15px;
+    }
+
+    .price {
+        font-size: 1.3rem;
+    }
+
+    .items_container .item h2 {
+        font-size: 1rem;
+    }
+
+    .items_container .item h4 {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    .items_container .item .buy button::after {
+        font-size: 1.6rem;
+    }
+}

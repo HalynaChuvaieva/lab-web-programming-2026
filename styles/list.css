@@ -1,0 +1,71 @@
+.list_container {
+    margin-left: 50px;
+    margin-top: 50px;
+    width: 250px; 
+    font-family: 'PT Sans', sans-serif; /* Шрифт згідно умов лаби */
+}
+
+.left-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.left-menu > li {
+    margin-bottom: 12px; 
+}
+
+.left-menu a {
+    text-decoration: none;
+    color: #6809CE; 
+    font-size: 16px; 
+    display: inline-block;
+}
+
+
+.left-menu a.active-main {
+    text-decoration: underline; 
+    font-weight: 800;
+}
+
+.sub-menu {
+    color: #6495ED;
+    list-style-type: square; 
+    margin-top: 8px;
+    margin-left: 25px; 
+    padding-left: 0;
+}
+
+.sub-menu li {
+    margin-bottom: 8px; /* Відстань між підпунктами */
+}
+
+.sub-menu a {
+    font-size: 14px; /* Трохи менший шрифт для підпунктів */
+    color: #6495ED;
+}
+
+/* Стиль для активного підпункту (Чизкейки Нью-Йорк) */
+.sub-menu a.active-sub {
+    font-weight: bold; 
+    text-decoration: underline;
+}
+
+/* Ефекти при наведенні миші (Hover) */
+.left-menu a:hover {
+    color: #00008b;
+}
+.menu-download{
+    margin-left: 10px;
+    display: block;
+    margin-top: 80px;
+}
+.menu-img{
+    padding-left: 40px;
+}
+.download{
+    margin:0;
+    text-align: center;
+    font-weight: 700;
+    font-size: 18px;
+}

@@ -1,0 +1,77 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: baseline; /* Вирівнювання цифр по нижній лінії тексту */
+    margin: 3rem 0 0 0;
+    gap: 20px; /* Збільшений відступ між цифрами, як на фото */
+    flex-wrap: wrap;
+}
+
+.pagination button {
+    background: transparent; /* Прозорий фон */
+    color: #00008b; /* Приглушений сірий колір неактивних цифр */
+    border: none;
+    padding: 5px; /* Невеликий відступ лише для зручності кліку */
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+.pagination button:hover:not(.active) {
+    font-weight: 700;
+    transform: scale(1.1);
+}
+
+.pagination button.active {
+    background: transparent;
+    color: #00008b; /* Темніший колір активної сторінки */
+    font-size: 1.8rem; /* Помітно більший розмір, як на референсі */
+    font-weight: bold;
+    box-shadow: none; /* Прибираємо тінь з попереднього коду */
+    padding: 0 5px;
+}
+
+/* ========================================= */
+/* --- Адаптивність під 3 типи екранів --- */
+/* ========================================= */
+
+@media (max-width: 1024px) {
+    /* Планшети */
+    .pagination {
+        gap: 15px;
+    }
+    .pagination button {
+        font-size: 1.1rem;
+    }
+    .pagination button.active {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Великі смартфони */
+    .pagination {
+        gap: 12px;
+        margin: 2rem 0 0 0;
+    }
+    .pagination button {
+        font-size: 1rem;
+    }
+    .pagination button.active {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Малі смартфони */
+    .pagination {
+        gap: 10px;
+    }
+    .pagination button {
+        font-size: 0.9rem;
+    }
+    .pagination button.active {
+        font-size: 1.3rem;
+    }
+}
