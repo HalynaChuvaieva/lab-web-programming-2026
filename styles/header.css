@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'MyPhoneFont';
-    src: url('../fonts/Ramsina-Regular.woff') format('woff');
+    src: url('../fonts/Carattere-Regular.woff2') format('woff2'), url('../fonts/Carattere-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }

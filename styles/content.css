@@ -1,5 +1,5 @@
 /*CONTENT*/
-content {
+.content {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -8,7 +8,7 @@ content {
     margin: 0;
 }
 
-content .container {
+.content .container {
     /*to keep items and list as the whole component*/
     width: 90%;
     background-color: rgb(237, 240, 244);
@@ -22,7 +22,7 @@ content .container {
 
 
 /* --- Основний контейнер --- */
-content .items-wrapper {
+.content .items-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,7 +34,7 @@ content .items-wrapper {
     box-sizing: border-box;
 }
 
-content .items_container {
+.content .items_container {
     width: 100%;
     display: flex;
     flex-wrap: wrap; /* Дозволяє карткам переноситися на новий рядок */
@@ -136,7 +136,7 @@ content .items_container {
 }
 
 /* --- Блок з текстом під картками (дві колонки) --- */
-content .container {
+.content .container {
     display: flex;
     background-color: rgba(255, 255, 255, 0.5); /* Напівпрозорий білий */
 
@@ -163,7 +163,7 @@ content .container {
     box-sizing: border-box;
 }
 
-content .text-content {
+.content .text-content {
     flex: 1; /* Змушує обидві колонки займати рівно по 50% вільного місця */
     font-size: 14px;
     line-height: 22px; /* Інтервал за вимогами лаби */
@@ -180,7 +180,7 @@ content .text-content {
     padding: 0;
 }
 
-content .text-content p {
+.content .text-content p {
     margin: 0;
 }
 
@@ -199,7 +199,7 @@ content .text-content p {
 
 @media (max-width: 1024px) {
     /* Планшети */
-    content .container {
+    .content .container {
         width: 90%; /* Збігається з шириною контейнера карток на планшетах */
         gap: 30px;
     }
@@ -207,7 +207,7 @@ content .text-content p {
 
 @media (max-width: 768px) {
     /* Великі смартфони */
-    content .container {
+    .content .container {
         width: 95%; /* Збігається з шириною контейнера карток на телефонах */
         flex-direction: column; /* Текст стає в одну колонку один під одним */
         gap: 20px;
@@ -224,7 +224,7 @@ content .text-content p {
 
 @media (max-width: 480px) {
     /* Малі смартфони */
-    content .container {
+    .content .container {
         width: 100%;
         padding: 1.5rem 15px;
     }
@@ -235,11 +235,11 @@ content .text-content p {
 
 /* 1. Планшети (від 769px до 1024px) - 2 картки в ряд */
 @media (max-width: 1024px) {
-    content .items-wrapper {
+    .content .items-wrapper {
         width: 90%;
     }
 
-    content .items_container {
+    .content .items_container {
         gap: 15px;
     }
 
@@ -259,12 +259,12 @@ content .text-content p {
 
 /* 2. Великі смартфони (від 481px до 768px) - 2 картки в ряд, менші відступи */
 @media (max-width: 768px) {
-    content .items-wrapper {
+    .content .items-wrapper {
         width: 95%;
         padding: 15px 10px;
     }
 
-    content .items_container {
+    .content .items_container {
         gap: 12px;
     }
 
@@ -298,7 +298,7 @@ content .text-content p {
 
 /* 3. Малі смартфони (до 480px) - 1 картка в ряд */
 @media (max-width: 480px) {
-    content .items_container {
+    .content .items_container {
         gap: 10px;
     }
 
