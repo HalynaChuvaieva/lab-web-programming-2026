@@ -1,6 +1,14 @@
 /* ========================================= */
 /* --- СТОРІНКА КОШИКА ТА ДОСТАВКИ --- */
 /* ========================================= */
+.page-title{
+    text-align: center;
+    color: #00008b;
+    font-size: 2.5rem; /* Зробимо заголовок трохи більшим і виразнішим */
+    margin-bottom: 30px;
+    text-transform: uppercase; /* Додаємо стилю */
+    letter-spacing: 1px;
+}
 .cart-main {
     width: 100%;
     max-width: 980px; 
@@ -35,6 +43,10 @@
     box-shadow: 0 4px 15px rgba(104, 9, 206, 0.05); /* Легка фіолетова тінь */
 }
 
+.card-info-container{
+    display: flex;
+    gap: 20px;
+}
 .item-img {
     width: 120px;
     height: 120px;
@@ -49,8 +61,9 @@
 
 .item-category {
     margin: 0 0 5px 0;
-    color: #888;
+    color: #6495ED;
     font-size: 0.9rem;
+    font-weight: 600;
 }
 
 .item-title {
@@ -62,7 +75,7 @@
 
 .item-subtitle {
     margin: 0;
-    color: #555;
+    color: #6495ED;
     font-size: 0.95rem;
 }
 
@@ -131,8 +144,8 @@
 .cart-summary h3 {
     margin: 0 0 15px 0;
     font-size: 1.2rem;
-    color: #555;
-    font-weight: 400;
+    color: #6495ED;
+    font-weight: 600;
 }
 
 .total-price {
@@ -144,7 +157,7 @@
 
 .checkout-btn {
     width: 100%;
-    background-color: #3b3b4f; /* Темний колір кнопки, як на твоєму макеті */
+    background-color: #6809CE; /* Темний колір кнопки, як на твоєму макеті */
     color: #ffffff;
     border: none;
     border-radius: 25px;
@@ -156,28 +169,33 @@
 }
 
 .checkout-btn:hover {
-    background-color: #6809CE; /* При наведенні стає фірмовим фіолетовим */
+    background-color: #00008b; /* При наведенні стає фірмовим фіолетовим */
 }
-
+/* ========================================= */
 /* --- ВАРІАНТИ ДОСТАВКИ --- */
+/* ========================================= */
+
 .delivery-options {
     display: flex;
     gap: 20px;
-    flex-wrap: wrap; /* Для перенесення на мобільних */
+    flex-wrap: wrap; /* Дозволяє перенесення карток на нові рядки, якщо екран малий */
+    justify-content: center; /* Завжди тримає картки по центру екрана */
 }
 
 .delivery-card {
-    flex: 1; /* Картки займають рівне місце */
-    min-width: 250px;
+    /* ВИПРАВЛЕННЯ: Прибрали flex: 1; і задали фіксовану ширину */
+    width: 300px; 
+    box-sizing: border-box;
+    
     background: #ffffff;
     border-radius: 16px;
     padding: 25px;
     box-shadow: 0 4px 15px rgba(104, 9, 206, 0.05);
-    text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    transition: transform 0.2s;
+    align-items: center; 
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .delivery-card:hover {
@@ -185,24 +203,139 @@
     box-shadow: 0 8px 20px rgba(104, 9, 206, 0.1);
 }
 
+/* --- КОНТЕЙНЕР ДЛЯ ІКОНКИ ТА ТЕКСТУ (Нова Пошта, Укрпошта) --- */
+.card-info-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 15px; 
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.card-info-container div {
+    text-align: left; 
+}
+
+/* --- СТИЛІ ДЛЯ КАРТКИ БЕЗ ІКОНКИ (Самовивіз) --- */
+.delivery-card > .delivery-title {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.delivery-card > .delivery-time {
+    margin-bottom: 15px;
+}
+
+/* --- ТИПОГРАФІКА ДОСТАВКИ --- */
 .delivery-title {
-    margin: 0;
+    margin: 0 0 5px 0;
     color: #00008b;
     font-size: 1.4rem;
     font-weight: 700;
 }
 
 .delivery-time {
-    margin: 0 0 10px 0;
+    margin: 0;
     color: #6809CE;
     font-weight: 700;
     font-size: 1.1rem;
 }
 
+.delivery-prices {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+}
+
 .delivery-prices p {
-    margin: 5px 0;
-    color: #555;
+    margin: 0;
+    color: #6495ED;
     font-size: 1rem;
+}
+
+/* ========================================= */
+/* --- АДАПТИВНІСТЬ ДЛЯ ДОСТАВКИ --- */
+/* ========================================= */
+
+@media (max-width: 900px) {
+    /* На планшеті картки самі перенесуться вниз, якщо не влізуть в один ряд, 
+       залишаючись по 300px і по центру, завдяки flex-wrap та justify-content: center */
+}
+
+@media (max-width: 600px) {
+    .delivery-options {
+        flex-direction: column; /* На телефоні жорстко ставимо в колонку */
+        align-items: center; /* Центруємо колонку */
+    }
+    
+    .delivery-card {
+        width: 100%; /* Картка займає всю ширину екрана... */
+        max-width: 350px; /* ...але не розтягується більше ніж на 350px, щоб виглядати естетично */
+    }
+}
+
+/* ========================================= */
+/* --- СЕКЦІЯ "УМОВИ ЗАМОВЛЕННЯ" --- */
+/* ========================================= */
+.terms-section {
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.terms-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.term-item {
+    flex: 1; /* Всі три блоки будуть однакової ширини */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Іконка в фіолетовому кружечку */
+.term-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #e5e0ff; /* Ніжно-фіолетовий фон (з твого градієнта body) */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-shrink: 0;
+    transition: background-color 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+}
+
+.term-icon svg {
+    width: 26px;
+    height: 26px;
+    fill: #6809CE; /* Фірмовий фіолетовий */
+}
+
+.term-text h3 {
+    margin: 0 0 10px 0;
+    color: #00008b; /* Темно-синій, як у всіх заголовків */
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.term-text p {
+    margin: 0;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.term-text strong {
+    color: #1a1a1a;
 }
 
 /* ========================================= */
@@ -212,12 +345,22 @@
 /* Планшети (до 900px) */
 @media (max-width: 900px) {
     .cart-container {
-        flex-direction: column; /* Блок суми падає під товари */
+        flex-direction: column; 
+        align-items: stretch; /* МАГІЯ ТУТ: змушує всі елементи тягнутися на 100% ширини */
+    }
+
+    .cart-items {
+        width: 100%; /* Гарантуємо, що лівий блок займе всю ширину */
+    }
+
+    .cart-item {
+        width: 100%; 
+        box-sizing: border-box;
     }
 
     .cart-summary {
-        width: 100%; /* Розтягуємо блок суми на всю ширину */
-        position: static; /* Відключаємо прилипання */
+        width: 100%; 
+        position: static; 
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -226,10 +369,22 @@
     .checkout-btn {
         max-width: 400px;
     }
+    .terms-container {
+        flex-direction: column; /* Складаємо колонки одна під одну */
+        gap: 25px;
+    }
+    
+    .term-item {
+        flex-direction: row; /* На планшеті іконка буде зліва, а текст справа */
+        gap: 20px;
+    }
+    
+    .term-icon {
+        margin-bottom: 0;
+    }
 }
 
-/* Телефони (до 600px) */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .cart-item {
         flex-direction: column; /* Картинка зверху, текст під нею */
         text-align: center;
@@ -250,5 +405,15 @@
 
     .delivery-card {
         flex: 0 0 100%; /* Картки доставки стають в одну колонку */
+    }
+    .terms-section {
+        margin-top: 40px;
+    }
+
+    .term-item {
+        flex-direction: column; /* Повертаємо іконку наверх для вузьких телефонів */
+        gap: 10px;
+        text-align: center;
+        align-items: center;
     }
 }

@@ -65,6 +65,7 @@
         </div>
         <div class="contact-block">
             <p class="phone">+38(095) 629-77-62</p>
+            <p class="phone">+38(050) 381-77-97</p>
             <div class="socials">
                 <a class="social-link">
                     <svg class="icon w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" viewBox="0 0 24 24">
@@ -89,11 +90,16 @@
     </header>
 
     <nav class="navbar">
+        <div class="burger-menu" id="burger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <div class="menu">
             <ul>
                 <li><a class="active" href="index.html">Головна</a></li>
                 <li class="separator">|</li>
-                <li><a href="cart.html">Про нас</a></li>
+                <li><a href="about-us.html">Про нас</a></li>
                 <li class="separator">|</li>
                 <li><a href="delivery.html">Доставка</a></li>
                 <li class="separator">|</li>
@@ -106,18 +112,13 @@
     </nav>
 
 
-        <!-- ========================================= -->
-    <!-- СТОРІНКА КОШИКА ТА ДОСТАВКИ -->
-    <!-- ========================================= -->
     <main class="cart-main">
         <h2 class="page-title">Ваше замовлення</h2>
 
         <div class="cart-container">
             
-            <!-- Ліва частина: Список товарів -->
             <div class="cart-items">
                 
-                <!-- Товар 1 -->
                 <div class="cart-item">
                     <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=300&q=80" alt="Чизкейк Нью-Йорк" class="item-img">
                     <div class="item-details">
@@ -135,7 +136,6 @@
                     </div>
                 </div>
 
-                <!-- Товар 2 -->
                 <div class="cart-item">
                     <img src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?auto=format&fit=crop&w=300&q=80" alt="Шоколадний тарт" class="item-img">
                     <div class="item-details">
@@ -155,7 +155,6 @@
 
             </div>
 
-            <!-- Права частина: Загальна сума -->
             <div class="cart-summary">
                 <h3>Загальна сума:</h3>
                 <div class="total-price">2 100 грн</div>
@@ -164,32 +163,38 @@
 
         </div>
 
-        <!-- СЕКЦІЯ ДОСТАВКИ (Під кошиком) -->
         <div class="delivery-section">
             <h2 class="page-title" style="margin-top: 40px;">Спосіб доставки</h2>
             
             <div class="delivery-options">
-                <!-- Картка Нова Пошта -->
                 <div class="delivery-card">
-                    <h3 class="delivery-title">Нова Пошта</h3>
-                    <p class="delivery-time">1-2 дні</p>
+                    <div class="card-info-container">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDjPbwSqnNeMiv4okBLZA7OlzeAmpNu1h3ZA&s" width="50" height="50" alt="Нова пошта">
+                        <div>
+                            <h3 class="delivery-title">Нова Пошта</h3>
+                            <p class="delivery-time">1-2 дні</p>
+                        </div>
+                    </div>
                     <div class="delivery-prices">
                         <p>У відділення: <strong>80 грн</strong></p>
                         <p>Кур'єром: <strong>150 грн</strong></p>
                     </div>
                 </div>
 
-                <!-- Картка Укрпошта -->
                 <div class="delivery-card">
-                    <h3 class="delivery-title">Укрпошта</h3>
-                    <p class="delivery-time">2-5 днів</p>
+                    <div class="card-info-container">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAP1nJ1fcCNzdAJPrkFi4t97GCDM6FqdfQSA&s" width="50" height="50" alt="Укр пошта">
+                    <div>
+                        <h3 class="delivery-title">Укрпошта</h3>
+                        <p class="delivery-time">2-5 днів</p>
+                    </div>
+                    </div> 
                     <div class="delivery-prices">
                         <p>У відділення: <strong>50 грн</strong></p>
                         <p>Кур'єром: <strong>120 грн</strong></p>
                     </div>
                 </div>
 
-                <!-- Картка Самовивіз -->
                 <div class="delivery-card">
                     <h3 class="delivery-title">Самовивіз</h3>
                     <p class="delivery-time">Сьогодні</p>
@@ -200,6 +205,41 @@
                 </div>
             </div>
         </div>
+
+        <section class="terms-section">
+            <div class="terms-container">
+                <div class="term-item">
+                    <div class="term-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0 2C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm1-10V7h-2v6l4.243 4.243 1.414-1.414L13 12z"/></svg>
+                    </div>
+                    <div class="term-text">
+                        <h3>Терміни виконання</h3>
+                        <p>Класичні торти та десерти з вітрини доступні для замовлення день у день. Індивідуальні замовлення зі складним декором приймаються мінімум за <strong>3 дні</strong>.</p>
+                    </div>
+                </div>
+
+                <div class="term-item">
+                    <div class="term-icon">
+                        <svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm0 2v10h18V7H3zm3 6h4v2H6v-2zm-1-4h14v2H5V9z"/></svg>
+                    </div>
+                    <div class="term-text">
+                        <h3>Оплата</h3>
+                        <p>Оплачуйте замовлення онлайн на сайті, готівкою або карткою при отриманні. Для індивідуальних тортів (від 3 кг) ми просимо передоплату <strong>50%</strong>.</p>
+                    </div>
+                </div>
+
+                <div class="term-item">
+                    <div class="term-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1.177-7.86l-2.765-2.767L6.643 12.8l4.18 4.18 8.486-8.486-1.415-1.414-7.071 7.07z"/></svg>
+                    </div>
+                    <div class="term-text">
+                        <h3>Гарантія якості</h3>
+                        <p>Згідно із законом, продовольчі товари не підлягають поверненню. Проте, якщо ви виявили пошкодження при доставці, ми обов'язково <strong>замінимо десерт</strong> або повернемо кошти.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
     </main>
 
 
@@ -229,7 +269,6 @@
     </footer>
 
 
-    <!-- FEEDBACK -->
     <div class="feedback-container">
         <button class="close-window">✖</button>
         <form class="feedback-form">
@@ -246,8 +285,8 @@
             <button class="feedback-send" place="Leave the comment">Send</button>
         </form>
     </div>
-
+    <script src="./script.js"></script>
 </body>
-<script src="script.js"></script>
+
 
 </html>

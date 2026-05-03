@@ -145,22 +145,28 @@ content .container {
 .container.text-container {
     background-color: transparent;
     display: flex;
-    flex-direction: column; /* Жорстко ставимо блоки один під одним */
-    gap: 20px; /* Відстань між першим і другим абзацом */
-    align-items: flex-start; /* Вирівнюємо обидва блоки строго по лівому краю */
+    flex-direction: row; /* Вишиковуємо в рядок на великих екранах */
+    gap: 40px; /* Красивий відступ між колонками */
+    align-items: flex-start; /* Вирівнюємо обидві колонки по верхньому краю */
+    padding: 30px 10px 0 10px; /* Відступ всередині контейнера */
+    margin: 40px auto; /* Відступ від карток до тексту */
+    border-top: 1px solid #a0a0a0; /* Тонка лінія зверху, як на макеті */
+    width: 100%;
+    max-width: 980px; /* Тримаємо ширину в межах макета */
+    box-sizing: border-box;
 }
 
 content .text-content {
-    width: 100%; /* Щоб обидва блоки займали однакову ширину */
-    font-size: 0.9rem;
-    line-height: 1.6;
+    flex: 1; /* Змушує обидві колонки займати рівно по 50% вільного місця */
+    font-size: 14px;
+    line-height: 22px; /* Інтервал за вимогами лаби */
     color: #333;
     text-align: left;
-    margin: 0; /* Скидаємо старі зовнішні відступи */
-    padding: 0; /* Скидаємо внутрішні відступи для ідеально рівної лінії */
+    margin: 0; 
+    padding: 0; 
 }
 
-/* Примусово скидаємо старі налаштування для класів first та second */
+/* Примусово обнуляємо старі відступи, щоб текст не "з'їжджав" */
 .container .text-content.first,
 .container .text-content.second {
     margin: 0; 
@@ -169,6 +175,15 @@ content .text-content {
 
 content .text-content p {
     margin: 0;
+}
+
+/* --- АДАПТИВНІСТЬ ДЛЯ ТЕКСТУ --- */
+@media (max-width: 768px) {
+    .container.text-container {
+        flex-direction: column; /* На планшетах і телефонах складаємо в колонку */
+        gap: 20px; /* Робимо відступ між абзацами меншим */
+        padding-top: 20px;
+    }
 }
 
 /* ========================================= */
