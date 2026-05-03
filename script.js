@@ -23,6 +23,25 @@ if (burgerMenu && navMenu) {
     });
 }
 
+// =========================================
+// ПІДСВІТКА АКТИВНОГО ПУНКТУ МЕНЮ
+// =========================================
+const navLinks = document.querySelectorAll('.navbar .menu ul li a');
+
+let currentPath = window.location.pathname.split('/').pop();
+
+if (currentPath === '') {
+    currentPath = 'index.html';
+}
+
+navLinks.forEach(link => {
+    link.classList.remove('active');
+    
+    if (link.getAttribute('href') === currentPath) {
+        link.classList.add('active');
+    }
+});
+
 // FEEDBACK
 feedback.addEventListener('click', (e) => {
     e.preventDefault();
