@@ -6,16 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Cheesecake Affair</title>
 
-    <link rel="icon" type="image/png" href="https://pngimg.com/d/vinyl_PNG95.png">
     <link rel="stylesheet" href="./styles/header.css">
     <link rel="stylesheet" href="./styles/navbar.css">
     <link rel="stylesheet" href="./styles/slider.css">
     <link rel="stylesheet" href="./styles/content.css">
-    <link rel="stylesheet" href="./styles/text-block.css">
     <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/pagination.css">
     <link rel="stylesheet" href="./styles/feedback.css">
     <link rel="stylesheet" href="./styles/list.css">
+    <link rel="stylesheet" href="./styles/delivery.css">
 
 
      <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -94,11 +93,11 @@
             <ul>
                 <li><a class="active" href="index.html">Головна</a></li>
                 <li class="separator">|</li>
-                <li><a href="cart.html">Меню</a></li>
+                <li><a href="cart.html">Про нас</a></li>
                 <li class="separator">|</li>
                 <li><a href="delivery.html">Доставка</a></li>
                 <li class="separator">|</li>
-                <li><a href="#">Локації</a></li>
+                <li><a href="#">Дні народження</a></li>
                 <li class="separator">|</li>
                 <li><a href="#">Бонуси</a></li>
             </ul>
@@ -106,6 +105,102 @@
         </div>
     </nav>
 
+
+        <!-- ========================================= -->
+    <!-- СТОРІНКА КОШИКА ТА ДОСТАВКИ -->
+    <!-- ========================================= -->
+    <main class="cart-main">
+        <h2 class="page-title">Ваше замовлення</h2>
+
+        <div class="cart-container">
+            
+            <!-- Ліва частина: Список товарів -->
+            <div class="cart-items">
+                
+                <!-- Товар 1 -->
+                <div class="cart-item">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=300&q=80" alt="Чизкейк Нью-Йорк" class="item-img">
+                    <div class="item-details">
+                        <p class="item-category">Класичний торт</p>
+                        <h3 class="item-title">Чизкейк "Нью-Йорк"</h3>
+                        <p class="item-subtitle">Вага: 1.2 кг</p>
+                    </div>
+                    <div class="item-price-qty">
+                        <div class="item-price">1 250 грн</div>
+                        <div class="qty-control">
+                            <button class="qty-btn">-</button>
+                            <input type="text" value="1" class="qty-input" readonly>
+                            <button class="qty-btn">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Товар 2 -->
+                <div class="cart-item">
+                    <img src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?auto=format&fit=crop&w=300&q=80" alt="Шоколадний тарт" class="item-img">
+                    <div class="item-details">
+                        <p class="item-category">Тарт</p>
+                        <h3 class="item-title">Шоколадний тарт</h3>
+                        <p class="item-subtitle">Вага: 0.8 кг</p>
+                    </div>
+                    <div class="item-price-qty">
+                        <div class="item-price">850 грн</div>
+                        <div class="qty-control">
+                            <button class="qty-btn">-</button>
+                            <input type="text" value="1" class="qty-input" readonly>
+                            <button class="qty-btn">+</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Права частина: Загальна сума -->
+            <div class="cart-summary">
+                <h3>Загальна сума:</h3>
+                <div class="total-price">2 100 грн</div>
+                <button class="checkout-btn">Оформити замовлення</button>
+            </div>
+
+        </div>
+
+        <!-- СЕКЦІЯ ДОСТАВКИ (Під кошиком) -->
+        <div class="delivery-section">
+            <h2 class="page-title" style="margin-top: 40px;">Спосіб доставки</h2>
+            
+            <div class="delivery-options">
+                <!-- Картка Нова Пошта -->
+                <div class="delivery-card">
+                    <h3 class="delivery-title">Нова Пошта</h3>
+                    <p class="delivery-time">1-2 дні</p>
+                    <div class="delivery-prices">
+                        <p>У відділення: <strong>80 грн</strong></p>
+                        <p>Кур'єром: <strong>150 грн</strong></p>
+                    </div>
+                </div>
+
+                <!-- Картка Укрпошта -->
+                <div class="delivery-card">
+                    <h3 class="delivery-title">Укрпошта</h3>
+                    <p class="delivery-time">2-5 днів</p>
+                    <div class="delivery-prices">
+                        <p>У відділення: <strong>50 грн</strong></p>
+                        <p>Кур'єром: <strong>120 грн</strong></p>
+                    </div>
+                </div>
+
+                <!-- Картка Самовивіз -->
+                <div class="delivery-card">
+                    <h3 class="delivery-title">Самовивіз</h3>
+                    <p class="delivery-time">Сьогодні</p>
+                    <div class="delivery-prices">
+                        <p>З нашої кондитерської</p>
+                        <p><strong>Безкоштовно</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
 
         <footer>
@@ -116,9 +211,9 @@
         <div class="navigation">
             <ul>
                 <li><a href="index.html">Головна</a></li>
-                <li><a href="cart.html">Меню</a></li>
+                <li><a href="cart.html">Про нас</a></li>
                 <li><a href="delivery.html">Доставка</a></li>
-                <li><a href="">Локації</a></li>
+                <li><a href="">Дні народження</a></li>
                 <li><a href="">Бонуси</a></li>
             </ul>
         </div>

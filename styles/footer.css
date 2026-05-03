@@ -7,7 +7,7 @@
      display: flex;
      flex-direction: row;
      justify-content: space-between;
-     padding: 15px 100px;
+     padding: 15px max(10px, calc(50vw - 490px));
      font-family: "PT Sans", sans-serif;
      box-sizing: border-box;
      font-size: 14px;

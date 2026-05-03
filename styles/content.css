@@ -142,15 +142,29 @@ content .container {
     border-top: 1px solid #666; /* Горизонтальна смуга зверху */
     box-sizing: border-box;
 }
-.container.text-container{
+.container.text-container {
     background-color: transparent;
+    display: flex;
+    flex-direction: column; /* Жорстко ставимо блоки один під одним */
+    gap: 20px; /* Відстань між першим і другим абзацом */
+    align-items: flex-start; /* Вирівнюємо обидва блоки строго по лівому краю */
 }
+
 content .text-content {
-    flex: 1; /* Обидві колонки займають рівно по 50% доступного простору */
+    width: 100%; /* Щоб обидва блоки займали однакову ширину */
     font-size: 0.9rem;
-    line-height: 1.6; /* Міжрядковий інтервал для кращої читабельності */
+    line-height: 1.6;
     color: #333;
-    text-align: left; /* Можна змінити на justify, якщо хочете рівні краї з обох боків */
+    text-align: left;
+    margin: 0; /* Скидаємо старі зовнішні відступи */
+    padding: 0; /* Скидаємо внутрішні відступи для ідеально рівної лінії */
+}
+
+/* Примусово скидаємо старі налаштування для класів first та second */
+.container .text-content.first,
+.container .text-content.second {
+    margin: 0; 
+    padding: 0;
 }
 
 content .text-content p {

@@ -1,24 +1,22 @@
 /*FEEDBACK*/
 .feedback {
-    /*button that calls window*/
-    font-family: "DM Sans";
+    font-family: 'PT Sans', sans-serif;
 }
 
 .feedback-container {
     position: fixed;
-    width: 30rem;
+    width: 28rem; 
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #e2e4e9;
-    box-shadow: 0px 0px 20px #e6e8f2;
-    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); 
     z-index: 999;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.2s ease, visibility 0.2s ease;
-    font-family: "DM Sans";
-    box-sizing: border-box
+    font-family: 'PT Sans', sans-serif;
+    box-sizing: border-box;
 }
 
 .feedback-container.show {
@@ -26,81 +24,131 @@
     visibility: visible;
 }
 
+
+.feedback-container .close-window {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+    background-color: #6809CE;
+    border: none;
+    margin: 0;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.feedback-container .close-window:hover {
+    background-color: #3a0571;
+}
+
 .feedback-form {
     display: flex;
     flex-direction: column;
-    padding: 5% 10%;
-    text-align: center;
-}
-
-.feedback-container .close-window {
-    color: white;
-    background-color: #333;
-    border: none;
-    border-radius: 5px;
-    margin: 6px;
-    padding: 5px 8px;
-    cursor: pointer;
+    padding: 40px 50px; 
 }
 
 .feedback-container h2 {
-    font-size: 2rem;
-    margin: 5% 5% 5% 5%;
-    letter-spacing: 1px;
+    font-size: 1.3rem;
+    margin: 0 0 30px 0;
+    color: #6809CE;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* Лейбли по центру */
+.feedback-container label {
+    font-size: 0.8rem;
+    color: #6809CE;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+/* Поля вводу */
+.feedback-container input,
+.feedback-container textarea {
+    background-color: #ffffff;
+    border: 1px solid #cccccc; /* Тонкий світло-сірий бордер */
+    margin-bottom: 20px;
+    border-radius: 0; /* Прямі кути */
+    font-size: 0.9rem;
+    padding: 0 10px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .feedback-container input {
-    height: 2.3rem;
-    border: none;
-    margin-bottom: 2rem;
-    border-radius: 2px;
-    font-size: 0.9rem;
-    padding: 0 10px;
-}
-
-.feedback-container h4 {
-    margin: 0 0 1% 0;
-    font-size: 1.05rem
-}
-
-.feedback-container .feedback-send {
-    width: 40%;
-    border: none;
-    height: 2rem;
-    background-color: #1c1e22;
-    color: white;
-    align-self: center;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    cursor: pointer;
+    height: 2.5rem;
 }
 
 .feedback-container textarea {
     min-width: 100%;
     max-width: 100%;
-    min-height: 3rem;
-    max-height: 11rem;
-    margin: 0 0 2rem 0;
-    padding: 0.5rem 0.8rem;
-    font-size: 0.9rem;
-    box-sizing: border-box
+    min-height: 6rem;
+    margin-bottom: 30px;
+    padding: 10px;
+    resize: vertical;
 }
 
-/*Adaptive styles*/
-@media (max-width: 1024px) {}
+/* Кнопка відправки */
+.feedback-container .feedback-send {
+    width: auto;
+    align-self: center; /* Центруємо саму кнопку */
+    border: none;
+    padding: 10px 30px;
+    background-color: #6809CE; /* Темно-сірий колір, як на макеті */
+    color: white;
+    border-radius: 0;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.feedback-container .feedback-send:hover {
+    background-color: #3a0571;
+}
+
+/* ========================================= */
+/* --- Стилізація стану помилки --- */
+/* ========================================= */
+
+/* Поля стають червоними ТІЛЬКИ якщо форма має клас .submitted і поле невалідне (порожнє або з помилкою) */
+.feedback-form.submitted input:invalid,
+.feedback-form.submitted textarea:invalid {
+    border: 1px solid #ff4d4d;
+    box-shadow: inset 0 0 3px rgba(255, 77, 77, 0.2), 0 0 5px rgba(255, 77, 77, 0.4);
+}
+
+/* Якщо поле порожнє після спроби відправки, змінюємо колір плейсхолдера */
+.feedback-form.submitted input:invalid::placeholder,
+.feedback-form.submitted textarea:invalid::placeholder {
+    color: #ff6b6b;
+    font-style: italic;
+    font-size: 0.85rem;
+}
+
+/* ========================================= */
+/* --- Адаптивність --- */
+/* ========================================= */
 
 @media (max-width: 768px) {
-
-    /*FEEDBACK*/
     .feedback-container {
         width: 25rem;
+    }
+    .feedback-form {
+        padding: 30px 40px;
     }
 }
 
 @media (max-width: 480px) {
-
-    /*FEEDBACK*/
     .feedback-container {
-        width: 85%;
+        width: 90%;
+    }
+    .feedback-form {
+        padding: 25px 20px;
     }
 }

@@ -1,219 +1,348 @@
-/*CONTENT*/
-content {
+/* ========================================= */
+/* --- ДИЗАЙН КАРТОК ЛОКАЦІЙ (FLEXBOX) --- */
+/* ========================================= */
+.locations-main {
     width: 100%;
+    max-width: 980px; 
+    margin: 40px auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+    font-family: 'PT Sans', sans-serif;
+    flex-grow: 1; 
+}
+
+.page-title {
+    text-align: center;
+    color: #00008b;
+    font-size: 2.5rem; /* Зробимо заголовок трохи більшим і виразнішим */
+    margin-bottom: 30px;
+    text-transform: uppercase; /* Додаємо стилю */
+    letter-spacing: 1px;
+}
+
+/* Фільтри */
+.filter-section {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    margin: 0
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap; 
 }
 
-content .container {
-    /*to keep items and list as the whole component*/
-    width: 85%;
-    background-color: rgb(237, 240, 244);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: start;
-    font-family: "DM Sans";
-    color: rgb(27, 28, 43);
-    padding: 10px 0;
-
-}
-
-content .list {
-    width: 75%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 20px
-}
-
-content .item {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 20px 0;
-
-}
-
-.item .info {
-    width: 50%;
-    display: flex;
-    flex-direction: row;
-    gap: 20px
-}
-
-.item .logo {
-    width: 7rem;
-    height: 7rem;
-    margin: 5px;
-}
-
-
-
-.item .text .item-type {
-    color: rgba(27, 28, 43, 0.668);
-    margin-bottom: 15px;
-    letter-spacing: 1.5px;
-}
-
-.item .text h3,
-.item .text p {
-    margin: 0;
-}
-
-.item .text h3 {
-    font-size: 1.5rem;
-}
-
-.item .price {
-    text-align: end;
-    font-size: 1.1rem;
-}
-
-.item .price input {
-    width: 25%;
-    text-align: end;
+.filter-section select {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: 1px solid #7a7a7a;
     border-radius: 5px;
-    border: 0.5px solid rgba(20, 24, 43, 0.627);
-    background-color: rgba(255, 255, 255, 0.801);
-
+    background-color: white;
+    color: #333;
+    font-family: inherit;
+    outline: none;
+    cursor: pointer;
+    min-width: 200px;
 }
 
-.item .price h3 {
-    margin-bottom: 5px;
+/* Сітка карток (Переписана на Flexbox) */
+.locations-grid {
+    padding: 0 30px;
+margin: 0 auto 40px auto; 
+  display: flex;
+    flex-wrap: wrap; /* Дозволяє карткам переноситися на новий рядок */
+    gap: 30px; /* Збільшені відступи, як ми робили раніше */
+    justify-content: flex-start; /* Вирівнюємо картки по лівому краю */
 }
 
-.item .price .quantity {
+.loc-card {
+    /* МАГІЯ FLEXBOX: 100% ширини мінус два відступи по 45px (90px), поділено на 3 картки */
+    flex: 0 0 calc((100% - 30px) / 2);
+    box-sizing: border-box;
+    
+    background: #ffffff;
+    border: none; 
+    border-radius: 10px; 
+    overflow: hidden; 
     display: flex;
-    flex-direction: row;
-    justify-content: right;
-    gap: 5px;
+    box-shadow: 0 4px 15px rgba(104, 9, 206, 0.08); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.quantity button {
+/* Ефект підняття картки при наведенні миші */
+.loc-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(104, 9, 206, 0.15); 
+}
+
+/* Контейнер для картинки (потрібен для ефекту зуму) */
+.loc-img-wrapper {
+    width: 100%;
+    overflow: hidden; 
+}
+
+.loc-img {
+    width: 100%;
+    height: 100%;
+    min-width: 350px;
+    object-fit: cover;
+    transition: transform 0.5s ease; 
+}
+
+/* Збільшуємо картинку, коли мишка на картці */
+.loc-card:hover .loc-img {
+    transform: scale(1.08); 
+}
+
+/* Текстовий блок */
+.loc-info {
+    padding: 15px 10px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1; /* Змушує контент розтягуватися і притискати кнопку до низу */
+}
+
+.loc-info h3 {
+    margin: 0 0 15px 0;
+    color: #00008b; 
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+/* Налаштування блоку з адресою та часом */
+.loc-info p {
+    margin: 0 0 25px 0;
+    color: #555;
+    font-size: 0.95rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+}
+
+.loc-info .address::before {
+    content: '📍 ';
+}
+
+.loc-info .time::before {
+    content: '🕒 ';
+}
+
+/* Кнопка */
+.loc-btn {
+    max-width: 100px;
+    margin-top: auto; 
+    display: flex;
     align-items: center;
     text-align: center;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 1px solid #232a3838;
-    background-color: transparent;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.quantity button:hover {
-    background-color: #e0e0e0;
-}
-
-
-content .buy {
-    width: 25%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    padding: 20px 20px;
-    margin: 50px 40px;
-    border: 1px solid rgba(26, 27, 40, 0.288);
-    border-radius: 25px;
-}
-
-.buy h2 {
-    margin: 0 15px;
-    font-weight: 500;
-}
-
-.buy h1 {
-    font-weight: 500;
-    margin: 15px;
-}
-
-.buy button {
-    width: 100%;
-    padding: 7px;
-    font-size: 1.1rem;
-    background-color: rgb(39, 41, 55);
+    background-color: #6809CE; 
+    color: #ffffff;
     border: none;
-    border-radius: 20px;
-    color: rgb(216, 217, 231);
-    cursor: pointer;
+    border-radius: 25px; 
+    padding: 8px 10px;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(104, 9, 206, 0.3); 
+}
+.loc-btn svg{
+    width: 48px;
+}
+.loc-btn:hover {
+    background-color: #00008b; 
+    box-shadow: 0 6px 15px rgba(0, 0, 139, 0.4);
+    transform: translateY(-2px); 
 }
 
-.buy button:hover {
-    background-color: rgba(43, 45, 65, 0.818);
-    transition: background-color 0.2s ease;
-}
-
-/*Adaptive styles*/
-@media (max-width: 1024px) {
-
-    /*CONTENT*/
-    content .container {
-        width: 90%;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    content .list {
-        width: 90%;
-    }
-
-    content .buy {
-        width: 90%;
-        flex-direction: row;
-        white-space: nowrap;
-
-        align-items: center;
-    }
-
-    .buy button {
-        width: 80%;
-        margin: 10px 15px 10px 30px;
-    }
-
-}
-
-
+/* ========================================= */
+/* --- АДАПТИВНІСТЬ ДЛЯ ТЕЛЕФОНІВ ТА ПЛАНШЕТІВ --- */
+/* ========================================= */
 
 @media (max-width: 768px) {
+    .page-title {
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
 
-    /*CONTENT*/
-    content .container {
+    .locations-grid {
+        gap: 20px;
+    }
+
+    /* ОСЬ ГОЛОВНЕ ВИПРАВЛЕННЯ ДЛЯ КАРТОК */
+    .loc-card {
+        flex: 0 0 100%; /* Одна картка на всю ширину екрана */
+        flex-direction: column; /* СТАВИМО КАРТИНКУ ЗВЕРХУ, ТЕКСТ ЗНИЗУ */
+        height: auto; /* Дозволяємо картці розтягуватися вниз за висотою тексту */
+    }
+
+    /* Картинка займає весь верх картки */
+    .loc-img-wrapper {
+        flex: none; /* Вимикаємо десктопні пропорції */
+        width: 100%; 
+        height: 220px; /* Акуратна висота фотографії */
+    }
+
+    /* Текст займає весь низ картки */
+    .loc-info {
+        flex: none;
         width: 100%;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 0;
-        overflow: hidden;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    /* Кнопка повертається до нормального вигляду */
+    .loc-btn {
+        width: fit-content; 
+        margin-top: 15px; /* Відступ від тексту */
+    }
+}
+
+
+
+/* ========================================= */
+/* --- СЕКЦІЯ "ЧОМУ МИ?" --- */
+/* ========================================= */
+/* ========================================= */
+/* --- СЕКЦІЯ "ЧОМУ МИ?" --- */
+/* ========================================= */
+.why-us-section {
+    width: 100%;
+    max-width: 980px; 
+    margin: 60px auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.why-us-container {
+    display: flex;
+    justify-content: space-between;
+    /* ВИПРАВЛЕНО: Тепер обидві колонки починаються строго з однієї лінії зверху */
+    align-items: flex-start; 
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.why-us-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Спільні стилі для кожного блоку переваги */
+.why-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    /* ВИПРАВЛЕНО: Жорстке вирівнювання по лівому краю. Текст тепер рівно під заголовком */
+    text-align: left; 
+}
+
+.left-col .why-feature {
+    justify-content: flex-end; /* Іконка залишається з правого боку (ближче до центру) */
+}
+
+.right-col .why-feature {
+    justify-content: flex-start;
+}
+
+/* Типографіка текстів */
+.why-text {
+    flex: 1; /* Розтягує текстовий блок, щоб він мав рівні межі */
+}
+
+.why-text h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.15rem;
+    color: #1a1a1a; 
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.why-text p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #777;
+    line-height: 1.5;
+}
+
+/* Стилі для іконок */
+.why-icon {
+    flex-shrink: 0; 
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.why-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: #6809CE; 
+}
+
+.why-line {
+    height: 1px;
+    background-color: #4646cd;
+    margin: 30px 0;
+    width: 100%;
+}
+
+.why-us-image {
+    flex: 1.2; 
+    display: flex;
+    justify-content: center;
+    align-self: center; 
+}
+
+.why-us-image img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 20px rgba(0,0,0,0.1)); 
+}
+
+/* ========================================= */
+/* --- АДАПТИВНІСТЬ СЕКЦІЇ "ЧОМУ МИ?" --- */
+/* ========================================= */
+
+@media (max-width: 900px) {
+    .why-us-container {
+        flex-direction: column; 
+        align-items: center; /* Повертаємо центрування для мобільного виду */
+        gap: 40px;
+    }
+
+    .why-us-image {
+        order: -1; 
+        margin-bottom: 20px;
+    }
+
+    .why-us-col {
+        width: 100%;
+        max-width: 500px; 
+    }
+
+    .left-col .why-feature {
+        flex-direction: row-reverse; 
+        justify-content: flex-start;
     }
 }
 
 @media (max-width: 480px) {
-
-    /*CONTENT*/
-    content .buy {
-        width: 80%;
-        flex-direction: column;
-        white-space: nowrap;
-        align-items: center;
+    .why-text h3 {
+        font-size: 1.05rem;
     }
-
-    content .item {
-        flex-direction: column
+    
+    .why-text p {
+        font-size: 0.9rem;
     }
-
-    .item .info {
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-
+    
+    .why-icon {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .why-line {
+        margin: 20px 0;
     }
 }

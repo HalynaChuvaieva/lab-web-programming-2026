@@ -4,15 +4,17 @@ nav {
     background-color: #6809CE;
     box-shadow: 0 4px 6px rgba(57, 68, 86, 0.227);
     font-family: "PT Sans", sans-serif;
+    box-sizing: border-box;
+    padding: 0 max(10px, calc(50vw - 490px));
 }
 
 nav .menu ul {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
     list-style-type: none;
-    padding: 20px;
+    padding: 20px 0; 
     font-size: 25px;
     margin: 0;
     gap: 40px;
@@ -62,5 +64,82 @@ nav .menu ul li.separator {
 
     nav .menu ul li a {
         font-size: 1.05rem;
+    }
+}
+
+/* Базові стилі бургера (прихований на ПК) */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    margin: 15px auto;
+    z-index: 1000;
+}
+
+.burger-menu span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* --- Адаптив для планшетів та телефонів --- */
+@media (max-width: 480px ) {
+    nav.navbar {
+        position: relative; /* Щоб меню випадало відносно nav */
+        padding: 5px 20px;
+        display: flex;
+        justify-content: flex-end; /* Бургер праворуч */
+    }
+
+    .burger-menu {
+        display: flex;
+    }
+
+    /* Ховаємо меню за замовчуванням */
+    nav .menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #6809CE;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.2);
+        max-height: 0; /* Висота 0 для плавного відкриття */
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+        z-index: 999;
+    }
+
+    /* Клас, який додаватиме JS для відкриття меню */
+    nav .menu.open {
+        max-height: 400px;
+    }
+
+    /* Робимо список вертикальним */
+    nav .menu ul {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px 0;
+    }
+
+    /* Ховаємо вертикальні роздільники "|" на телефоні */
+    nav .menu ul li.separator {
+        display: none;
+    }
+
+    /* Анімація перетворення бургера на хрестик */
+    .burger-menu.active span:nth-child(1) {
+        transform: translateY(11px) rotate(45deg);
+    }
+    .burger-menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .burger-menu.active span:nth-child(3) {
+        transform: translateY(-11px) rotate(-45deg);
     }
 }

@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="./styles/pagination.css">
     <link rel="stylesheet" href="./styles/feedback.css">
     <link rel="stylesheet" href="./styles/list.css">
+    <link rel="stylesheet" href="./styles/cart.css">
 
 
      <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -90,24 +91,149 @@
     </header>
 
     <nav class="navbar">
+        <div class="burger-menu" id="burger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <div class="menu">
             <ul>
                 <li><a class="active" href="index.html">Головна</a></li>
                 <li class="separator">|</li>
-                <li><a href="cart.html">Меню</a></li>
+                <li><a href="cart.html">Про нас</a></li>
                 <li class="separator">|</li>
                 <li><a href="delivery.html">Доставка</a></li>
                 <li class="separator">|</li>
-                <li><a href="#">Локації</a></li>
+                <li><a href="#">Дні народження</a></li>
                 <li class="separator">|</li>
                 <li><a href="#">Бонуси</a></li>
             </ul>
 
         </div>
     </nav>
+<h2 class="page-title">Локації</h2>
+        <div class="locations-grid">
+            <div class="loc-card" data-city="kyiv" data-district="pecherskyi">
+                <div class="loc-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=800" alt="Локація на Печерську" class="loc-img">
+                </div>
+                <div class="loc-info">
+                    <h3>м. Київ, Печерськ</h3>
+                    <p>
+                        <span class="address">вул. Хрещатик, 22</span>
+                        <span class="time">Щодня: <br />09:00 - 21:00</span>
+                    </p>
+<a href="https://maps.google.com" target="_blank" class="loc-btn">Google Maps <svg xmlns="http://www.w3.org/2000/svg" fill="#6495ED" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
+<path d="M28.292 1.326C27.226 1.116 26.127 1 25 1c-4.71 0-8.98 1.93-12.06 5.04l6.92 5.592L28.292 1.326zM18.595 13.178L11.62 7.55C9.35 10.43 8 14.07 8 18c0 2.281.452 4.487 1.304 6.534L18.595 13.178zM22.608 11.432C23.353 11.159 24.154 11 25 11c3.87 0 7 3.13 7 7 0 .338-.032.667-.078.992l7.772-9.499c-2.058-3.539-5.348-6.268-9.285-7.595L22.608 11.432zM27.341 24.591C26.608 24.851 25.822 25 25 25c-3.87 0-7-3.13-7-7 0-.354.034-.7.084-1.039l-7.803 9.537c.386.666.809 1.315 1.289 1.932.37.5.87 1.14 1.45 1.89 1.267 1.633 2.959 3.816 4.59 6.164L27.341 24.591zM18.778 38.215c2.082 3.184 3.852 6.497 4.172 9.055.14.99.99 1.73 1.99 1.73 1.02 0 1.87-.75 1.99-1.75.61-4.83 6.57-12.48 9.78-16.6.56-.72 1.05-1.35 1.5-1.94C40.65 25.69 42 21.89 42 18c0-2.322-.471-4.536-1.319-6.555L18.778 38.215z"></path>
+</svg></a>                </div>
+            </div>
 
+            <div class="loc-card" data-city="kyiv" data-district="podilskyi">
+                <div class="loc-img-wrapper">
+                    <img src="https://cdn.informator.ua/@dp/media/ua/2021/07/14/60ee869f8b6e09.24985753.jpg" alt="Локація на Подолі" class="loc-img">
+                </div>
+                <div class="loc-info">
+                    <h3>м. Київ, Поділ</h3>
+                    <p>
+                        <span class="address">вул. Сагайдачного, 14</span>
+                        <span class="time">Щодня: <br />10:00 - 22:00</span>
+                    </p>
+<a href="https://maps.google.com" target="_blank" class="loc-btn">Google Maps <svg xmlns="http://www.w3.org/2000/svg" fill="#6495ED" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
+<path d="M28.292 1.326C27.226 1.116 26.127 1 25 1c-4.71 0-8.98 1.93-12.06 5.04l6.92 5.592L28.292 1.326zM18.595 13.178L11.62 7.55C9.35 10.43 8 14.07 8 18c0 2.281.452 4.487 1.304 6.534L18.595 13.178zM22.608 11.432C23.353 11.159 24.154 11 25 11c3.87 0 7 3.13 7 7 0 .338-.032.667-.078.992l7.772-9.499c-2.058-3.539-5.348-6.268-9.285-7.595L22.608 11.432zM27.341 24.591C26.608 24.851 25.822 25 25 25c-3.87 0-7-3.13-7-7 0-.354.034-.7.084-1.039l-7.803 9.537c.386.666.809 1.315 1.289 1.932.37.5.87 1.14 1.45 1.89 1.267 1.633 2.959 3.816 4.59 6.164L27.341 24.591zM18.778 38.215c2.082 3.184 3.852 6.497 4.172 9.055.14.99.99 1.73 1.99 1.73 1.02 0 1.87-.75 1.99-1.75.61-4.83 6.57-12.48 9.78-16.6.56-.72 1.05-1.35 1.5-1.94C40.65 25.69 42 21.89 42 18c0-2.322-.471-4.536-1.319-6.555L18.778 38.215z"></path>
+</svg></a>                </div>
+            </div>
 
+            
+            <div class="loc-card" data-city="lviv" data-district="halitskyi">
+                <div class="loc-img-wrapper">
+                    <img src="https://cdn.informator.ua/@dp/media/ua/2021/07/14/60ee8e97891278.03057909.jpg" alt="Локація в Центрі" class="loc-img">
+                </div>
+                <div class="loc-info">
+                    <h3>м. Київ, Театральна</h3>
+                    <p>
+                        <span class="address">вул. Ярославів Вал, 9</span>
+                        <span class="time">Щодня: <br />08:00 - 20:00</span>
+                    </p>
+                    <a href="https://maps.google.com" target="_blank" class="loc-btn">Google Maps <svg xmlns="http://www.w3.org/2000/svg" fill="#6495ED" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
+<path d="M28.292 1.326C27.226 1.116 26.127 1 25 1c-4.71 0-8.98 1.93-12.06 5.04l6.92 5.592L28.292 1.326zM18.595 13.178L11.62 7.55C9.35 10.43 8 14.07 8 18c0 2.281.452 4.487 1.304 6.534L18.595 13.178zM22.608 11.432C23.353 11.159 24.154 11 25 11c3.87 0 7 3.13 7 7 0 .338-.032.667-.078.992l7.772-9.499c-2.058-3.539-5.348-6.268-9.285-7.595L22.608 11.432zM27.341 24.591C26.608 24.851 25.822 25 25 25c-3.87 0-7-3.13-7-7 0-.354.034-.7.084-1.039l-7.803 9.537c.386.666.809 1.315 1.289 1.932.37.5.87 1.14 1.45 1.89 1.267 1.633 2.959 3.816 4.59 6.164L27.341 24.591zM18.778 38.215c2.082 3.184 3.852 6.497 4.172 9.055.14.99.99 1.73 1.99 1.73 1.02 0 1.87-.75 1.99-1.75.61-4.83 6.57-12.48 9.78-16.6.56-.72 1.05-1.35 1.5-1.94C40.65 25.69 42 21.89 42 18c0-2.322-.471-4.536-1.319-6.555L18.778 38.215z"></path>
+</svg></a>
+                    </div>
+            </div>
+            <div class="loc-card" data-city="lviv" data-district="halitskyi">
+                <div class="loc-img-wrapper">
+                    <img src="https://cdn.informator.ua/@dp/media/ua/2021/07/14/60ee90564a2282.15821574.jpg" alt="Локація у Львові" class="loc-img">
+                </div>
+                <div class="loc-info">
+                    <h3>м. Львів, Центр</h3>
+                    <p>
+                        <span class="address">Площа Ринок, 12</span>
+                        <span class="time">Щодня: <br />09:00 - 22:00</span>
+                    </p>
+                    <a href="https://maps.google.com" target="_blank" class="loc-btn">Google Maps <svg xmlns="http://www.w3.org/2000/svg" fill="#6495ED" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
+<path d="M28.292 1.326C27.226 1.116 26.127 1 25 1c-4.71 0-8.98 1.93-12.06 5.04l6.92 5.592L28.292 1.326zM18.595 13.178L11.62 7.55C9.35 10.43 8 14.07 8 18c0 2.281.452 4.487 1.304 6.534L18.595 13.178zM22.608 11.432C23.353 11.159 24.154 11 25 11c3.87 0 7 3.13 7 7 0 .338-.032.667-.078.992l7.772-9.499c-2.058-3.539-5.348-6.268-9.285-7.595L22.608 11.432zM27.341 24.591C26.608 24.851 25.822 25 25 25c-3.87 0-7-3.13-7-7 0-.354.034-.7.084-1.039l-7.803 9.537c.386.666.809 1.315 1.289 1.932.37.5.87 1.14 1.45 1.89 1.267 1.633 2.959 3.816 4.59 6.164L27.341 24.591zM18.778 38.215c2.082 3.184 3.852 6.497 4.172 9.055.14.99.99 1.73 1.99 1.73 1.02 0 1.87-.75 1.99-1.75.61-4.83 6.57-12.48 9.78-16.6.56-.72 1.05-1.35 1.5-1.94C40.65 25.69 42 21.89 42 18c0-2.322-.471-4.536-1.319-6.555L18.778 38.215z"></path>
+</svg></a>
+                    
+                </div>
+            </div>
 
+        </div>
+
+        <section class="why-us-section">
+        <h2 class="page-title">Чому ми?</h2>
+        <div class="why-us-container">
+
+            <div class="why-us-col left-col">
+                <div class="why-feature">
+                    <div class="why-text">
+                        <h3>Якісна продукція</h3>
+                        <p>Торти на замовлення та інші десерти виготовляються зі свіжої та якісної продукції, яка безпосередньо впливає на смак кондитерських виробів.</p>
+                    </div>
+                    <div class="why-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 6a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v2a1 1 0 0 0 1 1zm4 0a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v2a1 1 0 0 0 1 1zM8 6a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v2a1 1 0 0 0 1 1zm9 2H7a2 2 0 0 0-2 2v2h14v-2a2 2 0 0 0-2-2zm2 6H5v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6z"/></svg>
+                    </div>
+                </div>
+                <div class="why-line"></div>
+                <div class="why-feature">
+                    <div class="why-text">
+                        <h3>Доставка</h3>
+                        <p>Ми маємо все необхідне обладнання для того, щоб доставити будь-які кондитерські вироби в ідеальному стані.</p>
+                    </div>
+                    <div class="why-icon">
+                        <svg viewBox="0 0 24 24"><path d="M19 7h-3V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10h2a3 3 0 0 0 6 0h4a3 3 0 0 0 6 0h2v-4l-3-5zM8 18a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm10 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm-1.5-6l1.8 3H15v-3h1.5zM2 14V6h12v8H2z"/></svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="why-us-image">
+            <img src="https://static.vecteezy.com/system/resources/previews/075/556/214/non_2x/blueberry-cheesecake-slice-creamy-dessert-bakery-style-treat-free-png.png" width="140" height="140" alt="Логотип The Cheesecake Affair">
+            </div>
+
+            <div class="why-us-col right-col">
+                <div class="why-feature">
+                    <div class="why-icon">
+                        <!-- Іконка Зірки (Кейтерінг) -->
+                        <svg viewBox="0 0 24 24"><path d="M12 2l2.4 4.8 5.3.8-3.8 3.7.9 5.3-4.8-2.5-4.8 2.5.9-5.3-3.8-3.7 5.3-.8z"/></svg>
+                    </div>
+                    <div class="why-text">
+                        <h3>Кейтерінг сервіс</h3>
+                        <p>Вас цікавить кейтерінг? Зв'яжіться з нами, наш консультант надасть вам детальну інформацію.</p>
+                    </div>
+                </div>
+                <div class="why-line"></div>
+                <div class="why-feature">
+                    <div class="why-icon">
+                        <!-- Іконка Картки (Оплата) -->
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zM4 6h16v2H4V6zm0 10v-4h16v4H4zm2-2h4v2H6v-2z"/></svg>
+                    </div>
+                    <div class="why-text">
+                        <h3>Онлайн оплата</h3>
+                        <p>Бажаєте зробити оплату онлайн? Не питання, сплачуйте так, як вам зручно.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
 
         <footer>
         <div>
@@ -117,9 +243,9 @@
         <div class="navigation">
             <ul>
                 <li><a href="index.html">Головна</a></li>
-                <li><a href="cart.html">Меню</a></li>
+                <li><a href="cart.html">Локації</a></li>
                 <li><a href="delivery.html">Доставка</a></li>
-                <li><a href="">Локації</a></li>
+                <li><a href="">Дні народження</a></li>
                 <li><a href="">Бонуси</a></li>
             </ul>
         </div>
@@ -135,7 +261,6 @@
     </footer>
 
 
-    <!-- FEEDBACK -->
     <div class="feedback-container">
         <button class="close-window">✖</button>
         <form class="feedback-form">
@@ -152,8 +277,8 @@
             <button class="feedback-send" place="Leave the comment">Send</button>
         </form>
     </div>
+<script src="script.js"></script>
 
 </body>
-<script src="script.js"></script>
 
 </html>

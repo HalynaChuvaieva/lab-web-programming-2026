@@ -1,135 +1,254 @@
-content {
+/* ========================================= */
+/* --- СТОРІНКА КОШИКА ТА ДОСТАВКИ --- */
+/* ========================================= */
+.cart-main {
     width: 100%;
+    max-width: 980px; 
+    margin: 40px auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+    font-family: 'PT Sans', sans-serif;
+    flex-grow: 1; 
+}
+
+/* --- КОНТЕЙНЕР КОШИКА --- */
+.cart-container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start; /* Щоб правий блок не розтягувався по висоті лівого */
+}
+
+.cart-items {
+    flex: 1; /* Займає весь вільний простір зліва */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0
+    gap: 20px;
 }
 
-content .container {
-    width: 80%;
-    background-color: rgb(255, 255, 255);
+/* --- КАРТКА ТОВАРУ --- */
+.cart-item {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(104, 9, 206, 0.05); /* Легка фіолетова тінь */
 }
 
-content .sections {
-    margin: 25px 0;
-    width: 90%;
-    border: none;
-    font-family: "DM Sans";
+.item-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 25px;
 }
 
-content .text {
-    border-radius: 2rem;
-    color: rgb(43, 44, 61);
-    padding: 10px 20px;
+.item-details {
+    flex-grow: 1; /* Виштовхує ціну і кнопки вправо */
 }
 
-content .delievers {
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
-    align-items: center;
-    justify-content: center;
-
+.item-category {
+    margin: 0 0 5px 0;
+    color: #888;
+    font-size: 0.9rem;
 }
 
-content .company {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(241, 241, 241);
-    border-radius: 2rem;
-    padding: 5px 0;
+.item-title {
+    margin: 0 0 8px 0;
+    color: #00008b;
+    font-size: 1.4rem;
+    font-weight: 700;
 }
 
-.company .logo {
-    margin: 8px;
-}
-
-#novaposhta {
-    width: 5rem;
-    height: 5rem;
-}
-
-#ukrposhta {
-    height: 5.2rem;
-    margin: 10px
-}
-
-#meest {
-    width: 6.5rem;
-}
-
-.company .text {
-    text-align: center;
-    padding: 10px;
-}
-
-.company .text p {
-    margin: 6px 0;
-}
-
-.company .text h2,
-.company .text h3 {
+.item-subtitle {
     margin: 0;
+    color: #555;
+    font-size: 0.95rem;
 }
 
-content .wait {
+.item-price-qty {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+}
+
+.item-price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+/* Кнопки кількості */
+.qty-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.qty-btn {
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+.qty-btn:hover {
+    border-color: #6809CE;
+    color: #6809CE;
+}
+
+.qty-input {
+    width: 40px;
     text-align: center;
-    letter-spacing: 2px;
-    color: rgb(46, 47, 61);
-    margin: 20px 0 50px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 5px;
+    font-family: inherit;
+    font-size: 1rem;
 }
 
-
-@media (max-width: 1286px) {
-
-    /*CONTENT*/
-    content .container {
-        width: 90%;
-    }
-
-    content .delievers {
-        flex-direction: column;
-    }
-
-    content .company {
-        width: 70%;
-        flex-direction: row;
-        justify-content: space-around;
-    }
-
+/* --- БЛОК СУМИ (Права колонка) --- */
+.cart-summary {
+    width: 300px; /* Фіксована ширина */
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(104, 9, 206, 0.08);
+    position: sticky; /* Блок прилипає при скролі (якщо товарів багато) */
+    top: 20px;
+    box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
+.cart-summary h3 {
+    margin: 0 0 15px 0;
+    font-size: 1.2rem;
+    color: #555;
+    font-weight: 400;
+}
 
-    /*CONTENT*/
-    content .container {
-        width: 100%;
+.total-price {
+    font-size: 2.2rem;
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.checkout-btn {
+    width: 100%;
+    background-color: #3b3b4f; /* Темний колір кнопки, як на твоєму макеті */
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-btn:hover {
+    background-color: #6809CE; /* При наведенні стає фірмовим фіолетовим */
+}
+
+/* --- ВАРІАНТИ ДОСТАВКИ --- */
+.delivery-options {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Для перенесення на мобільних */
+}
+
+.delivery-card {
+    flex: 1; /* Картки займають рівне місце */
+    min-width: 250px;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(104, 9, 206, 0.05);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.2s;
+}
+
+.delivery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(104, 9, 206, 0.1);
+}
+
+.delivery-title {
+    margin: 0;
+    color: #00008b;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.delivery-time {
+    margin: 0 0 10px 0;
+    color: #6809CE;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.delivery-prices p {
+    margin: 5px 0;
+    color: #555;
+    font-size: 1rem;
+}
+
+/* ========================================= */
+/* --- АДАПТИВНІСТЬ --- */
+/* ========================================= */
+
+/* Планшети (до 900px) */
+@media (max-width: 900px) {
+    .cart-container {
+        flex-direction: column; /* Блок суми падає під товари */
+    }
+
+    .cart-summary {
+        width: 100%; /* Розтягуємо блок суми на всю ширину */
+        position: static; /* Відключаємо прилипання */
+        display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 20px 0;
-        overflow: hidden;
     }
 
-    content .sections {
-        box-sizing: border-box;
-    }
-
-    content .company {
-        width: 90%;
-        flex-direction: row;
-        justify-content: space-around;
+    .checkout-btn {
+        max-width: 400px;
     }
 }
 
-@media (max-width: 480px) {}
+/* Телефони (до 600px) */
+@media (max-width: 600px) {
+    .cart-item {
+        flex-direction: column; /* Картинка зверху, текст під нею */
+        text-align: center;
+        padding: 25px 15px;
+    }
+
+    .item-img {
+        margin: 0 0 15px 0;
+        width: 150px;
+        height: 150px;
+    }
+
+    .item-price-qty {
+        align-items: center; /* Центруємо ціну і кнопки */
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    .delivery-card {
+        flex: 0 0 100%; /* Картки доставки стають в одну колонку */
+    }
+}

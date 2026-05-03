@@ -33,6 +33,8 @@
             justify-content: space-between;
             min-height: 100vh;
             background: linear-gradient(135deg, #e5e0ff 0%, #ffdde1 100%);
+            font-size: 14px; 
+            line-height: 22px;
         }
         
         .hidden {
@@ -66,6 +68,7 @@
         </div>
         <div class="contact-block">
             <p class="phone">+38(095) 629-77-62</p>
+            <p class="phone">+38(050) 381-77-97</p>
             <div class="socials">
                 <a class="social-link">
                     <svg class="icon w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" viewBox="0 0 24 24">
@@ -90,19 +93,24 @@
     </header>
 
     <nav class="navbar">
-        <div class="menu">
+        <div class="burger-menu" id="burger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <div class="menu" id="menu">
             <ul>
                 <li><a class="active" href="index.html">Головна</a></li>
                 <li class="separator">|</li>
-                <li><a href="cart.html">Меню</a></li>
+                <li><a href="cart.html">Про нас</a></li>
                 <li class="separator">|</li>
                 <li><a href="delivery.html">Доставка</a></li>
                 <li class="separator">|</li>
-                <li><a href="#">Локації</a></li>
+                <li><a href="#">Дні народження</a></li>
                 <li class="separator">|</li>
                 <li><a href="#">Бонуси</a></li>
             </ul>
-
         </div>
     </nav>
 
@@ -226,7 +234,7 @@
                         <img src="https://thumbs.dreamstime.com/b/cheesecake-dragon-fruit-chia-seeds-exquisite-cheesecake-soft-pink-hue-decorated-dragon-fruit-slices-397938615.jpg"
                             alt="Dragon Fruit">
                         <h2>Dragon Fruit</h2>
-                        <h4>З насінням чіа</h4>
+                        <h4>З насінням чіа та екзотичним фруктом</h4>
                         <div class="buy-wrapper">
                             <div class="price">
                                 <p>210 грн</p>
@@ -242,7 +250,7 @@
                         <img src="https://www.onesarcasticbaker.com/wp-content/uploads/2020/01/Blackberry-Cheesecake-2.jpg"
                             alt="vinyl cover">
                         <h2>Blackberry Vanilla Cheesecake</h2>
-                        <h4>З чорницею та ваніллю</h4>
+                        <h4>З чорницею та ваніллю, хрустка скоринка знизу</h4>
                         <div class="buy-wrapper">
                             <div class="price">
                                 <p>200 uah</p>
@@ -258,7 +266,7 @@
                         <img src="https://maryberryrecipes.co.uk/wp-content/uploads/2024/05/Mary-Berry-Vanilla-Cheesecake-2-840x473.jpg"
                             alt="Mary Berry Vanilla Cheesecake">
                         <h2>Mary Berry Vanilla Cheesecake</h2>
-                        <h4>Кремовий з тропічними фруктами</h4>
+                        <h4>Кремовий з тропічними фруктами, хрустка скоринка знизу</h4>
                         <div class="buy-wrapper">
                             <div class="price">
                                 <p>2000 uah</p>
@@ -294,7 +302,7 @@
                         <img src="https://diyjoy.com/wp-content/uploads/2020/11/No-Bake-Fruit-Mini-Cheesecake-Recipe-629x629.jpg"
                             alt="Jelly Multifruct">
                         <h2>Jelly Multifruct</h2>
-                        <h4>Ніжне желе та суміш фруктів</h4>
+                        <h4>Ніжне желе із застиглими фруктами та ягодами</h4>
                         <div class="buy-wrapper">
                             <div class="price">
                                 <p>255 грн</p>
@@ -430,9 +438,9 @@
         <div class="navigation">
             <ul>
                 <li><a href="index.html">Головна</a></li>
-                <li><a href="cart.html">Меню</a></li>
+                <li><a href="cart.html">Локації</a></li>
                 <li><a href="delivery.html">Доставка</a></li>
-                <li><a href="">Локації</a></li>
+                <li><a href="">Дні народження</a></li>
                 <li><a href="">Бонуси</a></li>
             </ul>
         </div>
@@ -448,21 +456,26 @@
     </footer>
 
 
-    <div class="feedback-container ">
-        <button class="close-window">✖</button>
-        <form class="feedback-form">
-            <h2>Feedback</h2>
-            <label for="name">Name *</label>
-            <input type="text" placeholder="Enter your name" required>
-            <label for="phone">Phone number *</label>
-            <input type="phone" placeholder="Enter your number" required>
-            <label for="email">Email *</label>
-            <input type="email" placeholder="Enter your email" required>
-            <label for="message">Comment *</label>
-            <textarea type="message" name="" id=""></textarea>
-            <button class="feedback-send" place="Leave the comment">Send</button>
-        </form>
-    </div>
+   <div class="feedback-container">
+    <button class="close-window">✖</button>
+    <form class="feedback-form" id="feedbackForm">
+        <h2>Зворотний зв'язок</h2>
+        
+        <label for="name">Ваше ім'я *</label>
+        <input type="text" id="name" required>
+        
+        <label for="phone">Телефон *</label>
+        <input type="tel" id="phone" required>
+        
+        <label for="email">Email *</label>
+        <input type="email" id="email" required>
+        
+        <label for="message">Коментар</label>
+        <textarea id="message" name="message"></textarea>
+        
+        <button type="submit" class="feedback-send">НАДІСЛАТИ</button>
+    </form>
+</div>
 
 </body>
 <script src="script.js"></script>

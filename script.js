@@ -12,6 +12,16 @@ let current = 0;
 let timer;
 let timerInterval = 4; 
 
+// BURGER MENU
+const burgerMenu = document.getElementById('burger-menu');
+const navMenu = document.getElementById('menu');
+
+if (burgerMenu && navMenu) {
+    burgerMenu.addEventListener('click', () => {
+        burgerMenu.classList.toggle('active'); // Анімація хрестика
+        navMenu.classList.toggle('open');      // Виїзд меню
+    });
+}
 
 // FEEDBACK
 feedback.addEventListener('click', (e) => {
@@ -30,7 +40,49 @@ overlay.addEventListener('click', () => {
         feedbackWind.classList.remove("show")
     }
 })
+const feedbackForm = document.getElementById('feedbackForm');
+const submitBtn = document.querySelector('.feedback-send');
+const phoneInput = document.getElementById('phone');
+const emailInput = document.getElementById('email');
+const messageInput = document.getElementById('message');
 
+if (submitBtn && feedbackForm) {
+    submitBtn.addEventListener('click', function() {
+        messageInput.value = messageInput.value.trim();
+        if (messageInput.value === '') {
+            messageInput.setCustomValidity('Коментар не може бути порожнім');
+        } else {
+            messageInput.setCustomValidity(''); 
+        }
+
+        const phoneRegex = /^\+?[0-9\s\-\(\)]{10,15}$/;
+        if (!phoneRegex.test(phoneInput.value)) {
+            phoneInput.setCustomValidity('Введіть коректний номер телефону (напр. +380951234567)');
+        } else {
+            phoneInput.setCustomValidity('');
+        }
+
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (!emailRegex.test(emailInput.value)) {
+            emailInput.setCustomValidity('Введіть коректний email (наприклад: name@mail.com)');
+        } else {
+            emailInput.setCustomValidity('');
+        }
+
+        feedbackForm.classList.add('submitted');
+    });
+
+    feedbackForm.addEventListener('submit', function(e) {
+        e.preventDefault(); 
+        
+        alert('Дякуємо! Ваш відгук успішно надіслано.');
+        
+        feedbackForm.reset();
+        feedbackForm.classList.remove('submitted');
+        document.querySelector('.overlay').style.display = 'none';
+        document.querySelector('.feedback-container').classList.remove('show');
+    });
+}
 
 //SLIDER
 function showSlide(index) {
@@ -114,4 +166,3 @@ function createPagination() {
 
 createPagination();
 showPage(1);
-
