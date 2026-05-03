@@ -71,7 +71,7 @@ nav .menu ul li.separator {
 .burger-menu {
     display: none;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 30px;
     height: 25px;
     cursor: pointer;
